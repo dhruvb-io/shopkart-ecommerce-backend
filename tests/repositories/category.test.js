@@ -52,7 +52,7 @@ describe('Tests for category repository getCategory', () => {
         // Prepare.
         const repository = new CategoryRepository();
 
-        jest.spyOn(Category, 'findByPk').mockImplementation(() => mockCategory);
+        jest.spyOn(Category, 'findById').mockImplementation(() => mockCategory);
 
         // Act.
         const response = await repository.getCategory(1);
@@ -66,7 +66,7 @@ describe('Tests for category repository getCategory', () => {
         // Prepare.
         const repository = new CategoryRepository();
 
-        jest.spyOn(Category, 'findByPk').mockImplementation(() => {
+        jest.spyOn(Category, 'findById').mockImplementation(() => {
             throw mockError;
         });
 
