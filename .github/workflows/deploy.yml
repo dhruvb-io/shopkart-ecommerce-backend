@@ -1,7 +1,7 @@
 name: Deploy to AWS
 
 on:
-  workflow_dispatch:
+  workflow_dispatch
 
 jobs:
   deploy:
@@ -23,15 +23,9 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Install PM2 (if missing)
+      - name: Restart application
         run: |
-          if ! command -v pm2 &> /dev/null; then
-            sudo npm install -g pm2
-          fi
-
-      - name: Start or Restart Application
-        run: |
-          if pm2 describe server > /dev/null; then
+          if pm2 describe server > /dev/null 2>&1; then
             pm2 restart server
           else
             pm2 start src/index.js --name server
