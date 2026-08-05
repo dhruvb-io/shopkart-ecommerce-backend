@@ -4,6 +4,4 @@ coverage/
 TakeHomeTasks/
 .sample-dotenv
 README.md
-package.json
-package-lock.json
 .DS_Store
