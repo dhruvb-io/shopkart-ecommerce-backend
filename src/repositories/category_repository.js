@@ -5,7 +5,7 @@ class CategoryRepository {
         try {
             const response = await Category.findAll();
             return response;
-        } catch(error) {
+        } catch (error) {
             console.log(error);
             throw error;
         }
@@ -13,9 +13,9 @@ class CategoryRepository {
 
     async getCategory(id) {
         try {
-            const response = await Category.findByPk(id);
+            const response = await Category.findById(id);
             return response;
-        } catch(error) {
+        } catch (error) {
             console.log(error);
             throw error;
         }
@@ -27,11 +27,10 @@ class CategoryRepository {
                 name,
                 description
             });
-            // sample log
             return response;
-        } catch(error) {
+        } catch (error) {
+            console.log(error);
             throw error;
-            
         }
     }
 
@@ -43,12 +42,11 @@ class CategoryRepository {
                 }
             });
             return response;
-        } catch(error) {
+        } catch (error) {
             console.log(error);
             throw error;
         }
     }
 }
-
 
 module.exports = CategoryRepository;
